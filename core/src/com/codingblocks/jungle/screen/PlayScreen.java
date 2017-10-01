@@ -29,7 +29,7 @@ public class PlayScreen implements Screen {
 
         camera = new OrthographicCamera();
         viewport = new StretchViewport(600, 400, camera);
-        camera.translate(viewport.getScreenWidth()/2, viewport.getScreenHeight()/2);
+        camera.translate(300, 200);
     }
 
     @Override public void show() {
