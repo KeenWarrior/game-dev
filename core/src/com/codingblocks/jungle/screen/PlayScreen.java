@@ -23,6 +23,8 @@ public class PlayScreen implements Screen {
     TiledMap map;
     OrthogonalTiledMapRenderer renderer;
 
+    ParallaxBackground background;
+
     OrthographicCamera camera;
     Viewport viewport;
 
@@ -45,7 +47,7 @@ public class PlayScreen implements Screen {
             textures.add(new Texture("plx-"+i+".png"));
         }
 
-        ParallaxBackground background = new ParallaxBackground(textures);
+        background = new ParallaxBackground(textures);
 
         stage.addActor(background);
 
@@ -74,10 +76,19 @@ public class PlayScreen implements Screen {
     public void update(){
 
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
+            background.step(1);
             camera.translate(10, 0);
+
         }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
+            background.step(-1);
+            camera.translate(-10, 0);
+
+        }
+
         if(Gdx.input.isKeyPressed(Input.Keys.UP)){
-            camera.translate(0, 10);
+
         }
 
         camera.update();
