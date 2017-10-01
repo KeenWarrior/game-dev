@@ -7,8 +7,6 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Array;
 
-/** Created by julienvillegas on 20/01/2017. */
-
 public class ParallaxBackground extends Actor {
 
 	private int scroll;
@@ -46,7 +44,11 @@ public class ParallaxBackground extends Actor {
 		batch.setColor(getColor().r, getColor().g, getColor().b, getColor().a * parentAlpha);
 		for(int i = 0;i<layers.size;i++) {
 			srcX = scroll + i*this.LAYER_SPEED_DIFFERENCE *scroll;
-			batch.draw(layers.get(i), x, y, originX, originY, width, heigth,scaleX,scaleY,rotation,srcX,srcY,layers.get(i).getWidth(),layers.get(i).getHeight(),flipX,flipY);
+			batch.draw(layers.get(i), x, y, originX, originY,
+					width, heigth,scaleX,scaleY,
+					rotation,srcX,srcY,
+					layers.get(i).getWidth(),layers.get(i).getHeight()
+					,flipX,flipY);
 		}
 	}
 }
